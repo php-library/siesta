@@ -118,6 +118,42 @@ class XMLAttribute
     }
 
     /**
+     *
+     * @return void
+     */
+    public function initializeCreated_at(): void
+    {
+        $this->setPhpName('created_at');
+        $this->setPhpType('SiestaDateTime');
+        $this->setDbType('DATETIME');
+        $this->setAutoValue(null);
+        $this->setDbName(null);
+        $this->setDefaultValue("new SiestaDateTime('now')");
+        $this->setIsPrimaryKey(false);
+        $this->setIsRequired(false);
+        $this->setIsTransient(false);
+        $this->setCustomAttributeList([]);
+    }
+
+    /**
+     *
+     * @return void
+     */
+    public function initializeUpdated_at(): void
+    {
+        $this->setPhpName('updated_at');
+        $this->setPhpType('SiestaDateTime');
+        $this->setDbType('DATETIME');
+        $this->setAutoValue(null);
+        $this->setDbName(null);
+        $this->setDefaultValue(null);
+        $this->setIsPrimaryKey(false);
+        $this->setIsRequired(false);
+        $this->setIsTransient(false);
+        $this->setCustomAttributeList([]);
+    }
+
+    /**
      * @param ColumnMetaData $columnMetaData
      */
     public function fromColumnMetaData(ColumnMetaData $columnMetaData)

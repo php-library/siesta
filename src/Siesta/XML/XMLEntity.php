@@ -232,6 +232,20 @@ class XMLEntity
         $this->readValueObjectFromXML($xmlAccess);
     }
 
+    /**
+     *
+     * @return void
+     */
+    public function addDefaultTimeAttributes(): void
+    {
+        $xmlAttributeCreated_at = new XMLAttribute();
+        $xmlAttributeCreated_at->initializeCreated_at();
+        $this->xmlAttributeList[] = $xmlAttributeCreated_at;
+
+        $xmlAttributeUpdated_at = new XMLAttribute();
+        $xmlAttributeUpdated_at->initializeUpdated_at();
+        $this->xmlAttributeList[] = $xmlAttributeUpdated_at;
+    }
 
     /**
      * @param XMLEntityExtension $xmlEntityExtension

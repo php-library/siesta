@@ -36,6 +36,8 @@ class MySQLMigrationStatementFactory implements MigrationStatementFactory
 
     const DROP_FOREIGN_KEY = "ALTER TABLE %s DROP FOREIGN KEY %s";
 
+    const ADD_UPDATED_AT_COLUMN = "ALTER TABLE %s ADD %s %s %s ON UPDATE CURRENT_TIMESTAMP";
+
     protected $tableName;
 
     /**
@@ -112,7 +114,8 @@ class MySQLMigrationStatementFactory implements MigrationStatementFactory
     public function createAddColumnStatement(Attribute $attribute): array
     {
         $nullHandling = ($attribute->getIsRequired()) ? "NOT NULL" : "NULL";
-        $statement = sprintf(self::ADD_COLUMN, $this->tableName, $this->quote($attribute->getDBName()), $attribute->getDbType(), $nullHandling);
+        $const = $attribute->getPhpName() === 'updated_at' ? self::ADD_UPDATED_AT_COLUMN : self::ADD_COLUMN;
+        $statement = sprintf($const, $this->tableName, $this->quote($attribute->getDBName()), $attribute->getDbType(), $nullHandling);
         return [$statement];
     }
 

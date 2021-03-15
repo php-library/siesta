@@ -97,6 +97,7 @@ class XMLReader
         $entityReader = new XMLEntity();
         $entityReader->setHasChangedSinceLastGeneration($this->hasChangedSinceLastGeneration);
         $entityReader->fromXML(new XMLAccess($entityElement));
+        $entityReader->addDefaultTimeAttributes();
         $this->xmlEntityList[] = $entityReader;
     }
 
