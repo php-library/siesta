@@ -1,5 +1,5 @@
 {
-  "name": "php-library/siesta",
+  "name": "php-libraries/siesta",
   "description": "PHP 7 ORM Library",
   "require": {
     "php": ">=7.1.0",
